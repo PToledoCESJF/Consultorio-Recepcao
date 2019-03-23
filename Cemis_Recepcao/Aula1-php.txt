@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+        echo 'HELLO WORD';
+        ?>
+        <!-- 
+        Elabore um programa em PHP que calcule a média aritmética de duas notas 
+        e exiba o resultado na tela. As notas estão armazenadas em variáveis.
+        -->
+        <div>
+            <h2>Média Aritimética</h2>
+            <form method="post" action="">
+                <p><label for="n1">1º número: </label>
+                    <input type="text" name="n1"></p>
+                <p><label for="n2">2º número: </label>
+                    <input type="text" name="n2"></p>
+                <button type="submit" name="calcular">Calcular</button>
+                <p><label>A média aritmética é: </label>
+                    <?php
+                    if (isset($_POST['calcular'])):
+                        $n1 = $_POST['n1'];
+                        $n2 = $_POST['n2'];
+                        $media = (($n1 + $n2) / 2);
+                        echo $media;
+                    endif
+                    ?></p>
+            </form>
+        </div>
+
+        <div>
+            <h2>Divisores</h2>
+            <!-- 
+            Elabore um programa em PHP que, a partir de um número inteiro e positivo, 
+            escreva todos os seus divisores. Por exemplo: se o número for 6, os divisores serão: 1, 2, 3 e 6
+            -->
+            <form method="post" action="">
+                <p><label for="inteiro">Digite um inteiro: </label>
+                    <input type="text" name="inteiro"></p>
+                <button type="submit" name="divisores">Divisores</button>
+                <p><label>Seus divisores são: </label>
+                    <?php
+                    if (isset($_POST['divisores'])):
+                        $inteiro = $_POST['inteiro'];
+                        for ($i = 1; $i <= $inteiro; $i++) {
+                            if ($inteiro % $i === 0) {
+                                echo ' ' . $i;
+                            }
+                        }
+                    endif
+                    ?></p>
+
+            </form>
+        </div>
+
+        <div>
+            <h2>Maior de 3</h2>
+            <!-- 
+            Elabore um programa em PHP que compare três números inteiros e determine 
+            qual o maior entre eles. Imprima os três números em ordem crescente e informe o maior
+            -->
+            <form method="post" action="">
+                <p><label for="num1">1º numero: </label> <input type="text" name="num1"></p>
+                <p><label for="num2">2º numero: </label> <input type="text" name="num2"></p>
+                <p><label for="num3">3º numero: </label> <input type="text" name="num3"></p>
+                <button type="submit" name="maior">Maior dos 3</button>
+                <p><label>O maior é: </label>
+                    <?php
+                    if (isset($_POST['maior'])):
+                        $num1 = $_POST['num1'];
+                        $num2 = $_POST['num2'];
+                        $num3 = $_POST['num3'];
+                        $aux = '';
+
+                        if ($num1 < $num2) {
+                            $aux = $num1;
+                            $num1 = $num2;
+                            $num2 = $num1;
+                        }
+                        if ($num1 < $num3) {
+                            $aux = $num1;
+                            $num1 = $num3;
+                            $num3 = $num1;
+                        }
+                        if ($num2 < $num3) {
+                            $aux = $num2;
+                            $num2 = $num3;
+                            $num3 = $num2;
+                        }
+                    endif;
+                    echo $num1;
+                    echo '<br>a ordem crescente é: '  . $num3 . ', ' . $num2 . ', ' . $num1;
+                    ?></p>
+
+            </form>
+        </div>
+
+    </body>
+</html>

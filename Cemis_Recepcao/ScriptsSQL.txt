@@ -1,0 +1,4 @@
+INSERT INTO convenio_tb(convenio, telefone, status, obs, tipo) VALUES('UNIMED', '12211221', 1, 'Testando o Convenio', 'Familiar');
+
+INSERT INTO paciente_tb(nomePaciente, dataNascimento, cpf, rg, convenio, cartaoConvenio, sexo, telefone, obs) VALUES('Jose Antonio' , '1990-05-05', '134679', '987654', 1, '5654665', 'M', '32323232', 'Testando pra ver se da certo');
+
